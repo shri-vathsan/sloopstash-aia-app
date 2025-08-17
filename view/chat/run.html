@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block title %}Run chat | SloopStash AIA{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s1 m1 l1"></div>
+  <div class="col s11 m11 l11">
+    <div class="block">
+      <div class="block-header clearfix valign-wrapper">
+        <div class="block-title left">
+          <h2><i class="fa-regular fa-message"></i> Run chat</h2>
+        </div>
+        <div class="block-menu right"></div>
+      </div>
+      <div class="block-content">
+        <form class="form" method="post" autocomplete="off" action="/chat/run">
+          <div class="row">
+            <div class="input-field col s24 m24 l24">
+              <textarea id="question" name="question" class="materialize-textarea" data-length="255" maxlength="255" required></textarea>
+              <label for="question">Question</label>
+            </div>
+          </div>
+          <button type="submit" class="btn-small right">Submit</button>
+          <a class="btn-flat right" href="/dashboard?tab=documents">Cancel</a>
+        </form>
+      </div>
+      <div class="block-footer">
+        <div class="block-action right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m12 l12">
+    {% if var['chat']['answer'] %}
+    <div class="card z-depth-0">
+      <div class="card-content">
+        <article>
+          <p class="flow-text">{{var['chat']['answer']}}</p>
+        </article>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

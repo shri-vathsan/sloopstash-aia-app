@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block title %}Create document | SloopStash AIA{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s1 m1 l1"></div>
+  <div class="col s15 m15 l15">
+    <div class="block">
+      <div class="block-header clearfix valign-wrapper">
+        <div class="block-title left">
+          <h2><i class="fa-regular fa-file-lines"></i> Create document</h2>
+        </div>
+        <div class="block-menu right"></div>
+      </div>
+      <div class="block-content">
+        <form class="form" method="post" autocomplete="off" action="/document/create">
+          <div class="row">
+            <div class="input-field col s24 m24 l24">
+              <input id="name" name="name" type="text" data-length="150" maxlength="150" required>
+              <label for="name">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s24 m24 l24">
+              <textarea id="description" name="description" class="materialize-textarea" data-length="255" maxlength="255" required></textarea>
+              <label for="description">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s24 m24 l24">
+              <textarea id="content" name="content" class="materialize-textarea" data-length="5000" maxlength="5000" required></textarea>
+              <label for="content">Content</label>
+            </div>
+          </div>
+          <button type="submit" class="btn-small right">Save</button>
+          <a class="btn-flat right" href="/dashboard?tab=documents">Cancel</a>
+        </form>
+      </div>
+      <div class="block-footer">
+        <div class="block-action right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col s8 m8 l8"></div>
+</div>
+{% endblock %}
