@@ -19,6 +19,7 @@ class chat_web_controller(root_web_controller):
   # HTTP GET method processor.
   def get(self,*args,**kwargs):
     if self.request.path=='/chat/run':
+      self.var['chat'] = {}
       return render_template('chat/run.html',var=self.var)
     else:
       return render_template('error.html',var=self.var)
